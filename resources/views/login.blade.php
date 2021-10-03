@@ -26,7 +26,7 @@
     </section>
     <section class="login-content">
       <div class="logo">
-          <img src="/assets/img/logo-pjm-nobg.png" alt="" style="width: 200px; height:200px">
+          <img src="/assets/img/logo-pjm-nobg.png" alt="" style="width: 150px; height:150px">
         <h1>Pusat Jaminan Mutu</h1>
       </div>
       <div class="login-box">
