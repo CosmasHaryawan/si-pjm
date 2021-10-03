@@ -180,7 +180,7 @@ class DokumenController extends Controller
     {
         $pdfs = Dokumen::where('id', $id)->orderBy('id')->first();
 //        $filenya = asset('/storage/documents/' . $pdfs['namafile']);
-        $filenya = '/public/documents/' . $pdfs['namafile'];
+        $filenya = '/documents/' . $pdfs['namafile'];
         return view('showpdf', ['namafile' => $filenya]);
     }
 }
