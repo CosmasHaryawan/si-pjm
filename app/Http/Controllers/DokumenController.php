@@ -184,7 +184,7 @@ class DokumenController extends Controller
 
     public function showPDF($id)
     {
-        if (auth()->user()->role == "pimpinan"){
+        if((auth()->check) and (auth()->user()->role == "pimpinan")){
             $canDonlod = true;
         } else {
             $canDonlod = false;
