@@ -31,6 +31,12 @@
 <script type="text/javascript" src="/assets/js/jquery.kurasa.js"></script>
 <script>
 $(document).ready(function() {
+	<?php if ($canDonlod) { ?>
+		canDonlod = true;
+	<?php } else { ?>
+		canDonlod = false;
+	<?php } ?>
+
 	var options = {
 		responsive:true,
 		autoFit:true,
@@ -47,7 +53,6 @@ $(document).ready(function() {
 		pdfUrl: '{{ $namafile }}',
 		pdfAutoCreatePages: true,
 		pdfBookSizeFromDocument: true,
-		
 		zoom:1,
 		
 		toolbarControls: [
@@ -64,7 +69,7 @@ $(document).ready(function() {
 			{type:'zoom-out',     active:true, optional: false},
 			{type:'zoom-default', active:true, optional: false},
 			{type:'optional',     active:false},
-			{type:'download',     active:false, optional: false},
+			{type:'download',     active:canDonlod, optional: false},
 			{type:'fullscreen',   active:true, optional: false},
 		],
 		

@@ -33,18 +33,21 @@
         <form class="login-form" action="/login" method="POST">
             @csrf
           <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>LOGIN</h3>
-          @if (session('status'))
-            <div class="alert alert-danger">
-                {{ session('status') }}
-            </div>
-            @endif
-          <div class="form-group">
-            <label class="control-label">USERNAME</label>
-            <input class="form-control" type="text" name="username" placeholder="Email" required autofocus>
+          <div class="form-floating">
+          <label class="control-label">USERNAME</label>
+            <input class="form-control @error('email')  is-invalid @enderror" 
+              type="text" name="email" id="email" placeholder="Email" 
+              value="{{ old('email') }}"
+              required autofocus>
+              @error('email')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+              @enderror
           </div>
           <div class="form-group">
             <label class="control-label">PASSWORD</label>
-            <input class="form-control" type="password" name="password" placeholder="Password" required>
+            <input class="form-control" type="password" name="password" id="password" placeholder="Password" required>
           </div>
           <div class="form-group">
             <!-- <div class="utility">

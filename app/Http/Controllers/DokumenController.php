@@ -178,9 +178,16 @@ class DokumenController extends Controller
 
     public function showPDF($id)
     {
+        if (auth()->user()->role == "pimpinan"){
+            $canDonlod = true;
+        } else {
+            $canDonlod = false;
+        }
+
         $pdfs = Dokumen::where('id', $id)->orderBy('id')->first();
-//        $filenya = asset('/storage/documents/' . $pdfs['namafile']);
-        $filenya = '/documents/' . $pdfs['namafile'];
-        return view('showpdf', ['namafile' => $filenya]);
+        // $filenya = asset('/storage/documents/' . $pdfs['namafile']);
+       $filenya = '/documents/' . $pdfs['namafile'];
+
+return view('showpdf', ['namafile' => $filenya,'canDonlod'=>$canDonlod]);
     }
 }

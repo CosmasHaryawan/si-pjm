@@ -5,7 +5,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KontenController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,8 +44,14 @@ Route::delete('/admin-kategori/{id}',[KategoriController::class, 'destroy']);
 Route::get('/file-manager/{idparent}/{idkategori}',[DokumenController::class, 'fileManager']);
 Route::get('/showpdf/{id}',[DokumenController::class, 'showPdf']);
 
-Route::get('/login',[UserController::class, 'login']);
-Route::post('/login',[UserController::class, 'validasi']);
+// Route::get('/login',[UserController::class, 'login']);
+// Route::post('/login',[UserController::class, 'validasi']);
+
+Route::get('/login',[LoginController::class, 'index']);//->middleware($guest);
+Route::post('/login',[LoginController::class, 'authenticate']);
+Route::get('/logout',[LoginController::class, 'logout']);
+
+
 
 Route::get('/user/create',[UserController::class, 'create']);
 Route::get('/user/save',[UserController::class, 'store']);
@@ -51,7 +59,7 @@ Route::get('/admin/home',[UserController::class, 'dashboard']);
 
 
 
-Route::get('/admin-konten/create/{jenis}',[KontenController::class, 'create']);
+Route::get('/admin-konten/create/{jenis}',[KontenController::class, 'create'])->middleware("role:");
 Route::post('/admin-konten/save',[KontenController::class, 'store']);
 
 

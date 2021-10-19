@@ -128,7 +128,8 @@
               <li><a href="/file-manager/13/0">Regulasi</a></li>
             </ul>
           </li>
-
+@if (!isset(auth()->user()->role) or (auth()->user()->role == ""))
+@else
           <li class="drop-down"><a href="">Hasil Evaluasi</a>
             <ul>
               <li class="drop-down"><a href="#">Monev</a>
@@ -142,12 +143,16 @@
               <li><a href="/file-manager/16/0">Evaluasi Institusi</a></li>
             </ul>
           </li>
-
+@endif
 
 
           <li><a href="/kegiatan">Kegiatan</a></li>
           <li><a href="/galeri">Gallery</a></li>
+@if (!isset(auth()->user()->role) or (auth()->user()->role == ""))
           <li><a href="/login">Login</a></li>
+@else
+          <li><a href="/logout">Logout</a></li>
+@endif
         </ul>
       </nav><!-- .nav-menu -->
 

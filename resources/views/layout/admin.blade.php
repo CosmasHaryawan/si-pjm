@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Blank Page - Vali Admin</title>
+    <title>::Admin SI-PJM::</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
             <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
             <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-            <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+            <li><a class="dropdown-item" href="/logout"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -40,8 +40,8 @@
       <!-- <img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image"> -->
 				<i class="fa fa-user"></i>
         <div>
-          <p class="app-sidebar__user-name">@yield('username')</p>
-          <p class="app-sidebar__user-designation">@yield('role')</p>
+          <p class="app-sidebar__user-name"> {{ auth()->user()->name }}</p>
+          <p class="app-sidebar__user-designation">{{ auth()->user()->role }}</p>
         </div>
       </div>
       <?php
