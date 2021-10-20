@@ -47,7 +47,7 @@ Route::get('/showpdf/{id}',[DokumenController::class, 'showPdf']);
 // Route::get('/login',[UserController::class, 'login']);
 // Route::post('/login',[UserController::class, 'validasi']);
 
-Route::get('/login',[LoginController::class, 'index']);//->middleware($guest);
+Route::get('/login',[LoginController::class, 'index']);
 Route::post('/login',[LoginController::class, 'authenticate']);
 Route::get('/logout',[LoginController::class, 'logout']);
 

@@ -92,9 +92,15 @@
           <img src="/assets/img/logo-stmik-akakom-nobg.png" alt="" class="img-fluid">
         </a>
       </div>
-
       <nav class="nav-menu float-right d-none d-lg-block">
         <ul>
+        @if (isset(auth()->user()->name) and (auth()->user()->name != ""))
+          <li class="pr-2 showuser">
+          Welcome,
+        {{ auth()->user()->name }} <br/>
+        ({{ auth()->user()->role }})
+          </li>
+          @endif   
           <li class=""><a href="/">Home</a></li>
           <li class="drop-down"><a href="">Institusi</a>
             <ul>
